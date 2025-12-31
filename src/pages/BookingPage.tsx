@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import Layout from "@/components/layout/Layout";
+import ScrollReveal from "@/components/ScrollReveal";
 import { 
   MapPin, 
   Phone, 
@@ -77,15 +78,17 @@ Mohon konfirmasi jadwal yang tersedia. Terima kasih!`;
       {/* Hero Section */}
       <section className="py-16 lg:py-24 hero-gradient">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Booking & Kontak
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Jadwalkan konsultasi Anda dengan mudah. Tim kami siap membantu mewujudkan 
-              senyum impian Anda.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Booking & Kontak
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Jadwalkan konsultasi Anda dengan mudah. Tim kami siap membantu mewujudkan 
+                senyum impian Anda.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -94,7 +97,7 @@ Mohon konfirmasi jadwal yang tersedia. Terima kasih!`;
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Booking Form */}
-            <div className="animate-fade-up">
+            <ScrollReveal direction="left">
               <div className="bg-card rounded-3xl p-8 lg:p-10 border border-border shadow-lg">
                 <h2 className="font-display text-2xl font-bold text-foreground mb-2">
                   Form Booking Konsultasi
@@ -198,97 +201,103 @@ Mohon konfirmasi jadwal yang tersedia. Terima kasih!`;
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Contact Info */}
-            <div className="space-y-8 animate-fade-up delay-200">
+            <div className="space-y-8">
               {/* Quick WhatsApp */}
-              <div className="bg-[#25D366]/10 rounded-3xl p-8 border border-[#25D366]/20">
-                <h3 className="font-display text-xl font-bold text-foreground mb-4">
-                  Butuh Respon Cepat?
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  Chat langsung dengan tim kami via WhatsApp untuk pertanyaan atau booking instan.
-                </p>
-                <a
-                  href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20di%20Brown%20Clinic."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="whatsapp" size="lg" className="w-full">
-                    <MessageCircle className="w-5 h-5" />
-                    Chat via WhatsApp
-                  </Button>
-                </a>
-              </div>
+              <ScrollReveal direction="right">
+                <div className="bg-[#25D366]/10 rounded-3xl p-8 border border-[#25D366]/20">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-4">
+                    Butuh Respon Cepat?
+                  </h3>
+                  <p className="text-muted-foreground mb-6">
+                    Chat langsung dengan tim kami via WhatsApp untuk pertanyaan atau booking instan.
+                  </p>
+                  <a
+                    href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20layanan%20di%20Brown%20Clinic."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="whatsapp" size="lg" className="w-full">
+                      <MessageCircle className="w-5 h-5" />
+                      Chat via WhatsApp
+                    </Button>
+                  </a>
+                </div>
+              </ScrollReveal>
 
               {/* Contact Details */}
-              <div className="bg-card rounded-3xl p-8 border border-border">
-                <h3 className="font-display text-xl font-bold text-foreground mb-6">
-                  Informasi Kontak
-                </h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
+              <ScrollReveal direction="right" delay={100}>
+                <div className="bg-card rounded-3xl p-8 border border-border">
+                  <h3 className="font-display text-xl font-bold text-foreground mb-6">
+                    Informasi Kontak
+                  </h3>
+                  <div className="space-y-6">
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                        <MapPin className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground mb-1">Alamat</p>
+                        <p className="text-muted-foreground">
+                          Jl. Sudirman No. 123, Jakarta Selatan, 12190
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground mb-1">Alamat</p>
-                      <p className="text-muted-foreground">
-                        Jl. Sudirman No. 123, Jakarta Selatan, 12190
-                      </p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <Phone className="w-6 h-6 text-primary" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                        <Phone className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground mb-1">Telepon</p>
+                        <p className="text-muted-foreground">(021) 123-4567</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground mb-1">Telepon</p>
-                      <p className="text-muted-foreground">(021) 123-4567</p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <Mail className="w-6 h-6 text-primary" />
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                        <Mail className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground mb-1">Email</p>
+                        <p className="text-muted-foreground">info@brownclinic.id</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-foreground mb-1">Email</p>
-                      <p className="text-muted-foreground">info@brownclinic.id</p>
-                    </div>
-                  </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                      <Clock className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground mb-1">Jam Operasional</p>
-                      <div className="text-muted-foreground space-y-1">
-                        <p>Senin - Jumat: 09:00 - 20:00</p>
-                        <p>Sabtu: 09:00 - 17:00</p>
-                        <p>Minggu: Tutup</p>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                        <Clock className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground mb-1">Jam Operasional</p>
+                        <div className="text-muted-foreground space-y-1">
+                          <p>Senin - Jumat: 09:00 - 20:00</p>
+                          <p>Sabtu: 09:00 - 17:00</p>
+                          <p>Minggu: Tutup</p>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Map */}
-              <div className="bg-card rounded-3xl overflow-hidden border border-border">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2904876075375!2d106.81458931476892!3d-6.226108995493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e98888d5e1%3A0x3b62b15c67e5a9b4!2sJl.%20Jend.%20Sudirman%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1640000000000!5m2!1sen!2sid"
-                  width="100%"
-                  height="300"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Brown Clinic Location"
-                ></iframe>
-              </div>
+              <ScrollReveal direction="right" delay={200}>
+                <div className="bg-card rounded-3xl overflow-hidden border border-border">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2904876075375!2d106.81458931476892!3d-6.226108995493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e98888d5e1%3A0x3b62b15c67e5a9b4!2sJl.%20Jend.%20Sudirman%2C%20Jakarta!5e0!3m2!1sen!2sid!4v1640000000000!5m2!1sen!2sid"
+                    width="100%"
+                    height="300"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="Brown Clinic Location"
+                  ></iframe>
+                </div>
+              </ScrollReveal>
             </div>
           </div>
         </div>

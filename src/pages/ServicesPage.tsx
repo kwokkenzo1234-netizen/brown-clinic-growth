@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ScrollReveal from "@/components/ScrollReveal";
 import { 
   Shield, 
   Sparkles, 
@@ -112,15 +113,17 @@ const ServicesPage = () => {
       {/* Hero Section */}
       <section className="py-16 lg:py-24 hero-gradient">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Layanan Kami
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Berbagai perawatan gigi dan estetika profesional dengan teknologi modern, 
-              dokter berpengalaman, dan standar internasional.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Layanan Kami
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Berbagai perawatan gigi dan estetika profesional dengan teknologi modern, 
+                dokter berpengalaman, dan standar internasional.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -131,84 +134,87 @@ const ServicesPage = () => {
             {services.map((service, index) => (
               <div
                 key={service.id}
-                className={`grid lg:grid-cols-2 gap-12 items-center animate-fade-up ${
+                className={`grid lg:grid-cols-2 gap-12 items-center ${
                   index % 2 === 1 ? "lg:flex-row-reverse" : ""
                 }`}
-                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={index % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
-                  </div>
-                </div>
-
-                <div className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary">
-                    <service.icon className="w-4 h-4" />
-                    <span className="text-sm font-medium">{service.title}</span>
-                  </div>
-
-                  <h2 className="font-display text-3xl font-bold text-foreground">
-                    {service.title}
-                  </h2>
-
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.longDesc}
-                  </p>
-
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-foreground">Masalah yang diselesaikan:</h4>
-                    <ul className="space-y-2">
-                      {service.problems.map((problem, i) => (
-                        <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                          <span>{problem}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-4">
-                    <h4 className="font-semibold text-foreground">Proses perawatan:</h4>
-                    <ol className="space-y-2">
-                      {service.process.map((step, i) => (
-                        <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                          <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-sm flex items-center justify-center shrink-0 font-medium">
-                            {i + 1}
-                          </span>
-                          <span>{step}</span>
-                        </li>
-                      ))}
-                    </ol>
-                  </div>
-
-                  <div className="flex flex-wrap gap-6 pt-4">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Estimasi Durasi</p>
-                      <p className="font-semibold text-foreground">{service.duration}</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Kisaran Harga</p>
-                      <p className="font-semibold text-foreground">{service.priceRange}</p>
+                <ScrollReveal direction={index % 2 === 0 ? "left" : "right"}>
+                  <div className={index % 2 === 1 ? "lg:order-2" : ""}>
+                    <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
                     </div>
                   </div>
+                </ScrollReveal>
 
-                  <a
-                    href={`https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20${encodeURIComponent(service.title)}%20di%20Brown%20Clinic.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button variant="hero" size="lg" className="mt-4">
-                      <MessageCircle className="w-5 h-5" />
-                      Konsultasi via WhatsApp
-                    </Button>
-                  </a>
-                </div>
+                <ScrollReveal direction={index % 2 === 0 ? "right" : "left"} delay={100}>
+                  <div className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary">
+                      <service.icon className="w-4 h-4" />
+                      <span className="text-sm font-medium">{service.title}</span>
+                    </div>
+
+                    <h2 className="font-display text-3xl font-bold text-foreground">
+                      {service.title}
+                    </h2>
+
+                    <p className="text-muted-foreground leading-relaxed">
+                      {service.longDesc}
+                    </p>
+
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground">Masalah yang diselesaikan:</h4>
+                      <ul className="space-y-2">
+                        {service.problems.map((problem, i) => (
+                          <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                            <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                            <span>{problem}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground">Proses perawatan:</h4>
+                      <ol className="space-y-2">
+                        {service.process.map((step, i) => (
+                          <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                            <span className="w-6 h-6 rounded-full bg-primary/10 text-primary text-sm flex items-center justify-center shrink-0 font-medium">
+                              {i + 1}
+                            </span>
+                            <span>{step}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+
+                    <div className="flex flex-wrap gap-6 pt-4">
+                      <div>
+                        <p className="text-sm text-muted-foreground">Estimasi Durasi</p>
+                        <p className="font-semibold text-foreground">{service.duration}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-muted-foreground">Kisaran Harga</p>
+                        <p className="font-semibold text-foreground">{service.priceRange}</p>
+                      </div>
+                    </div>
+
+                    <a
+                      href={`https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20mengenai%20${encodeURIComponent(service.title)}%20di%20Brown%20Clinic.`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Button variant="hero" size="lg" className="mt-4">
+                        <MessageCircle className="w-5 h-5" />
+                        Konsultasi via WhatsApp
+                      </Button>
+                    </a>
+                  </div>
+                </ScrollReveal>
               </div>
             ))}
           </div>
@@ -218,25 +224,27 @@ const ServicesPage = () => {
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-primary">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto animate-fade-up">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Masih Ragu dengan Layanan yang Tepat?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">
-              Konsultasikan kebutuhan Anda dengan dokter kami. Kami akan membantu menentukan 
-              perawatan terbaik untuk senyum impian Anda.
-            </p>
-            <Link to="/booking">
-              <Button
-                variant="secondary"
-                size="xl"
-                className="text-primary font-semibold"
-              >
-                Jadwalkan Konsultasi Gratis
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
-          </div>
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+                Masih Ragu dengan Layanan yang Tepat?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg mb-8">
+                Konsultasikan kebutuhan Anda dengan dokter kami. Kami akan membantu menentukan 
+                perawatan terbaik untuk senyum impian Anda.
+              </p>
+              <Link to="/booking">
+                <Button
+                  variant="secondary"
+                  size="xl"
+                  className="text-primary font-semibold"
+                >
+                  Jadwalkan Konsultasi Gratis
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

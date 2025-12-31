@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ScrollReveal from "@/components/ScrollReveal";
 import { ArrowRight, Award, GraduationCap, Heart, Shield, Sparkles } from "lucide-react";
 
 const doctors = [
@@ -67,15 +68,17 @@ const DoctorsPage = () => {
       {/* Hero Section */}
       <section className="py-16 lg:py-24 hero-gradient">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Tim Dokter & Profesional Kami
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Dipimpin oleh dokter-dokter berpengalaman dengan keahlian di berbagai bidang 
-              kedokteran gigi dan estetika.
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Tim Dokter & Profesional Kami
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Dipimpin oleh dokter-dokter berpengalaman dengan keahlian di berbagai bidang 
+                kedokteran gigi dan estetika.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -84,48 +87,46 @@ const DoctorsPage = () => {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-8">
             {doctors.map((doctor, index) => (
-              <div
-                key={doctor.name}
-                className="bg-card rounded-3xl overflow-hidden border border-border shadow-lg hover:shadow-xl transition-shadow duration-300 animate-fade-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="grid md:grid-cols-5">
-                  <div className="md:col-span-2">
-                    <div className="aspect-[3/4] h-full">
-                      <img
-                        src={doctor.image}
-                        alt={doctor.name}
-                        className="w-full h-full object-cover"
-                      />
+              <ScrollReveal key={doctor.name} delay={index * 100}>
+                <div className="bg-card rounded-3xl overflow-hidden border border-border shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+                  <div className="grid md:grid-cols-5">
+                    <div className="md:col-span-2">
+                      <div className="aspect-[3/4] h-full">
+                        <img
+                          src={doctor.image}
+                          alt={doctor.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div className="md:col-span-3 p-6 lg:p-8 flex flex-col justify-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-3 w-fit">
-                      <GraduationCap className="w-4 h-4" />
-                      {doctor.specialty}
-                    </div>
-                    <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                      {doctor.name}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      {doctor.experience}
-                    </p>
-                    <p className="text-foreground/80 leading-relaxed mb-6">
-                      {doctor.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {doctor.credentials.map((cred) => (
-                        <span
-                          key={cred}
-                          className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
-                        >
-                          {cred}
-                        </span>
-                      ))}
+                    <div className="md:col-span-3 p-6 lg:p-8 flex flex-col justify-center">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-3 w-fit">
+                        <GraduationCap className="w-4 h-4" />
+                        {doctor.specialty}
+                      </div>
+                      <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+                        {doctor.name}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-4">
+                        {doctor.experience}
+                      </p>
+                      <p className="text-foreground/80 leading-relaxed mb-6">
+                        {doctor.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {doctor.credentials.map((cred) => (
+                          <span
+                            key={cred}
+                            className="px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-medium"
+                          >
+                            {cred}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -134,28 +135,28 @@ const DoctorsPage = () => {
       {/* Clinic Features */}
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Fasilitas Klinik Kami
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Standar kebersihan dan kenyamanan tertinggi untuk setiap pasien
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Fasilitas Klinik Kami
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Standar kebersihan dan kenyamanan tertinggi untuk setiap pasien
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {clinicFeatures.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="bg-card rounded-2xl p-6 text-center border border-border animate-fade-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <feature.icon className="w-7 h-7 text-primary" />
+              <ScrollReveal key={feature.title} delay={index * 100}>
+                <div className="bg-card rounded-2xl p-6 text-center border border-border h-full">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <feature.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">{feature.description}</p>
                 </div>
-                <h3 className="font-semibold text-foreground mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -164,37 +165,45 @@ const DoctorsPage = () => {
       {/* Clinic Gallery */}
       <section className="py-16 lg:py-24">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16 animate-fade-up">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Suasana Klinik
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Ruang praktik yang bersih, modern, dan nyaman
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Suasana Klinik
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                Ruang praktik yang bersih, modern, dan nyaman
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden animate-fade-up">
-              <img
-                src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&auto=format&fit=crop&q=80"
-                alt="Reception area"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden animate-fade-up delay-100">
-              <img
-                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&auto=format&fit=crop&q=80"
-                alt="Treatment room"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div className="aspect-[4/3] rounded-2xl overflow-hidden animate-fade-up delay-200">
-              <img
-                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&auto=format&fit=crop&q=80"
-                alt="Dental equipment"
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            <ScrollReveal>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&auto=format&fit=crop&q=80"
+                  alt="Reception area"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&auto=format&fit=crop&q=80"
+                  alt="Treatment room"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&auto=format&fit=crop&q=80"
+                  alt="Dental equipment"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -202,24 +211,26 @@ const DoctorsPage = () => {
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-primary">
         <div className="container">
-          <div className="text-center max-w-3xl mx-auto animate-fade-up">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-              Siap Bertemu dengan Dokter Kami?
-            </h2>
-            <p className="text-primary-foreground/80 text-lg mb-8">
-              Jadwalkan konsultasi dan temukan perawatan terbaik untuk senyum Anda.
-            </p>
-            <Link to="/booking">
-              <Button
-                variant="secondary"
-                size="xl"
-                className="text-primary font-semibold"
-              >
-                Jadwalkan Konsultasi
-                <ArrowRight className="w-5 h-5" />
-              </Button>
-            </Link>
-          </div>
+          <ScrollReveal>
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
+                Siap Bertemu dengan Dokter Kami?
+              </h2>
+              <p className="text-primary-foreground/80 text-lg mb-8">
+                Jadwalkan konsultasi dan temukan perawatan terbaik untuk senyum Anda.
+              </p>
+              <Link to="/booking">
+                <Button
+                  variant="secondary"
+                  size="xl"
+                  className="text-primary font-semibold"
+                >
+                  Jadwalkan Konsultasi
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ScrollReveal from "@/components/ScrollReveal";
 import {
   Accordion,
   AccordionContent,
@@ -86,18 +87,20 @@ const FAQPage = () => {
       {/* Hero Section */}
       <section className="py-16 lg:py-24 hero-gradient">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center animate-fade-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
-              <HelpCircle className="w-4 h-4" />
-              <span className="text-sm font-medium">Frequently Asked Questions</span>
+          <ScrollReveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
+                <HelpCircle className="w-4 h-4" />
+                <span className="text-sm font-medium">Frequently Asked Questions</span>
+              </div>
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
+                Pertanyaan yang Sering Diajukan
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                Temukan jawaban untuk pertanyaan umum seputar layanan, prosedur, dan klinik kami.
+              </p>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Pertanyaan yang Sering Diajukan
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Temukan jawaban untuk pertanyaan umum seputar layanan, prosedur, dan klinik kami.
-            </p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -106,31 +109,29 @@ const FAQPage = () => {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             {faqs.map((category, categoryIndex) => (
-              <div
-                key={category.category}
-                className="mb-12 animate-fade-up"
-                style={{ animationDelay: `${categoryIndex * 100}ms` }}
-              >
-                <h2 className="font-display text-2xl font-bold text-foreground mb-6">
-                  {category.category}
-                </h2>
-                <Accordion type="single" collapsible className="space-y-4">
-                  {category.questions.map((faq, index) => (
-                    <AccordionItem
-                      key={index}
-                      value={`${category.category}-${index}`}
-                      className="bg-card rounded-2xl border border-border px-6 data-[state=open]:shadow-lg transition-shadow"
-                    >
-                      <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
-                        {faq.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
-                        {faq.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+              <ScrollReveal key={category.category} delay={categoryIndex * 100}>
+                <div className="mb-12">
+                  <h2 className="font-display text-2xl font-bold text-foreground mb-6">
+                    {category.category}
+                  </h2>
+                  <Accordion type="single" collapsible className="space-y-4">
+                    {category.questions.map((faq, index) => (
+                      <AccordionItem
+                        key={index}
+                        value={`${category.category}-${index}`}
+                        className="bg-card rounded-2xl border border-border px-6 data-[state=open]:shadow-lg transition-shadow"
+                      >
+                        <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline py-5">
+                          {faq.question}
+                        </AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -139,33 +140,35 @@ const FAQPage = () => {
       {/* Still Have Questions CTA */}
       <section className="py-16 lg:py-24 bg-secondary">
         <div className="container">
-          <div className="max-w-2xl mx-auto text-center animate-fade-up">
-            <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-              Masih Ada Pertanyaan?
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Tim kami siap membantu menjawab semua pertanyaan Anda. Hubungi kami 
-              via WhatsApp atau jadwalkan konsultasi langsung.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://wa.me/6281234567890?text=Halo,%20saya%20punya%20pertanyaan%20mengenai%20layanan%20di%20Brown%20Clinic."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="whatsapp" size="lg" className="w-full sm:w-auto">
-                  <MessageCircle className="w-5 h-5" />
-                  Chat via WhatsApp
-                </Button>
-              </a>
-              <Link to="/booking">
-                <Button variant="hero" size="lg" className="w-full sm:w-auto">
-                  Jadwalkan Konsultasi
-                  <ArrowRight className="w-5 h-5" />
-                </Button>
-              </Link>
+          <ScrollReveal>
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="font-display text-3xl font-bold text-foreground mb-4">
+                Masih Ada Pertanyaan?
+              </h2>
+              <p className="text-muted-foreground text-lg mb-8">
+                Tim kami siap membantu menjawab semua pertanyaan Anda. Hubungi kami 
+                via WhatsApp atau jadwalkan konsultasi langsung.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://wa.me/6281234567890?text=Halo,%20saya%20punya%20pertanyaan%20mengenai%20layanan%20di%20Brown%20Clinic."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="whatsapp" size="lg" className="w-full sm:w-auto">
+                    <MessageCircle className="w-5 h-5" />
+                    Chat via WhatsApp
+                  </Button>
+                </a>
+                <Link to="/booking">
+                  <Button variant="hero" size="lg" className="w-full sm:w-auto">
+                    Jadwalkan Konsultasi
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
     </Layout>
